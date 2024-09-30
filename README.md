@@ -7,6 +7,7 @@ go to any freshly created folder and clone this git repository with "git clone h
 
 Step 2:
 put the gemini api key into the .env file
+modify the path in config.yaml to the folder with the documents or put the documents in the data folder.
 
 step 3:
 build the docker image with "docker build -t rag ."
