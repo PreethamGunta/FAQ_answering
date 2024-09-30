@@ -13,6 +13,7 @@ Running the Application on Linux (or Windows with WSL):
 1)Navigate to a new folder and clone the repository:
 
 git clone https://github.com/PreethamGunta/FAQ_answering
+
 Add your Gemini API key to the .env file. Then, either update the config.yaml file to point to your document folder or place the documents in the data folder.
 
 
