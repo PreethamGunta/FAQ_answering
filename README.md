@@ -1,27 +1,36 @@
 # FAQ_answering
-Answer user queries with information from a faq.csv file with a lot of question and answers data.
+This Retrieval-Augmented Generation (RAG) application is designed to provide accurate, contextually relevant answers to frequently asked questions (FAQs) for businesses across various industries. By leveraging large language models (LLMs) and a retrieval mechanism, the application enhances the quality of responses by integrating real-time information from specific company databases or knowledge sources.
+
+Businesses automating customer support or internal knowledge management can streamline information retrieval across sectors like finance, healthcare, and e-commerce. The application reduces workload, ensures consistent responses, and scales efficiently by combining LLM-generated language with real-time data retrieval for accurate, relevant answers.
 
 ## Watch the Demo Video
 
 [![Watch the video](https://img.youtube.com/vi/oHY1MpOoJeE/maxresdefault.jpg)](https://www.youtube.com/watch?v=oHY1MpOoJeE)
 
 
-How to run this application for linux (or windows with wsl):
+Running the Application on Linux (or Windows with WSL):
 
-Step 1:
-go to any freshly created folder and clone this git repository with "git clone https://github.com/PreethamGunta/FAQ_answering"
+1)Navigate to a new folder and clone the repository:
 
-Step 2:
-put the gemini api key into the .env file
-modify the path in config.yaml to the folder with the documents or put the documents in the data folder.
+git clone https://github.com/PreethamGunta/FAQ_answering
+Add your Gemini API key to the .env file. Then, either update the config.yaml file to point to your document folder or place the documents in the data folder.
 
-step 3:
-build the docker image with "docker build -t rag ."
 
-step 4:
-Run the docker container with "docker run -v "$(pwd)/data:/app/data" -p 8000:8000 --env-file .env rag"
+2)Build the Docker image:
 
-step 5:
-Run the RAG service by asking questions by "curl -X 'POST' 'http://0.0.0.0:8000/v1/pw_ai_answer' -H 'accept: */*' -H 'Content-Type: application/json' -d '{
-  "prompt": "How to Reset my password?"
-}'"
+docker build -t rag .
+
+
+3)Run the Docker container:
+
+docker run -v "$(pwd)/data:/app/data" -p 8000:8000 --env-file .env rag
+
+
+4)Use the RAG service by sending a question with the following curl command:
+
+curl -X POST 'http://0.0.0.0:8000/v1/pw_ai_answer' \
+-H 'accept: */*' \
+-H 'Content-Type: application/json' \
+-d '{
+  "prompt": "How do I reset my password?"
+}'
