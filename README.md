@@ -30,8 +30,8 @@ docker run -v "$(pwd)/data:/app/data" -p 8000:8000 --env-file .env rag
 4)Use the RAG service by sending a question with the following curl command:
 
 curl -X POST 'http://0.0.0.0:8000/v1/pw_ai_answer' \
--H 'accept: */*' \
--H 'Content-Type: application/json' \
+-H "accept: */*" \
+-H "Content-Type: application/json" \
 -d '{
   "prompt": "How do I reset my password?"
 }'
